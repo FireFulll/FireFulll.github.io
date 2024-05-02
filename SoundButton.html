@@ -6,10 +6,16 @@
   <title>Boutons sonores</title>
   <style>
     /* Ajoutez vos styles CSS ici */
+
+    body {
+      background-color: #f0f0f0; /* Couleur de fond de la page */
+    }
+    
     .custom-button {
   width: 100px;
   height: 100px;
   background-color: transparent;
+  border: 2px solid #007bff;
   border: none;
   cursor: pointer;
   margin: 10px;
@@ -26,6 +32,11 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+#buttons-container .custom-button {
+      width: calc(33.333% - 20px); /* Largeur du bouton moins les marges */
+      margin: 10px;
+
   </style>
 </head>
 <body>
