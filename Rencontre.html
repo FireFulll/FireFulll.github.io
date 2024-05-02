@@ -7,6 +7,8 @@
   <style>
     /* Ajoutez vos styles CSS ici */
 
+
+
     body {
       background-color: #333333; /* Couleur de fond de la page */
     }
@@ -15,41 +17,60 @@
   width: 100px;
   height: 100px;
   background-color: transparent;
-  border: 2px solid
+  border: solid
   border: none;
   cursor: pointer;
   margin: 10px;
 }
 
+    .custom-message {
+  text-align: center;
+  color : white;
+
+}
+
+
+
 .custom-button img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  align-content: center;
 }
 
 #buttons-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
 
   </style>
 </head>
 <body>
 
-<div id="custom-message">
-  Vous naviguez dans les eau froides et sombres de la mer de Barents lorsque tout à coup vou entendez un bruit sourd. Un coup d'oeil vers le hublot vous permet d'apercevoir une immense tentacule passer furtivement. Le sous-marin s'arrêta nette et un immense oeil apparu de l'autre côté de la vitre. L'oeil émet alors un étrange son, on dirait qu'il essaye de vous dire quelque chose...
-</div>
+<p class="custom-message">
+  Vous naviguez dans les eau froides et sombres de la mer de Barents lorsque tout à coup vous entendez un bruit sourd. Un coup d'oeil vers le hublot vous permet d'apercevoir un immense tentacule passer furtivement. Le sous-marin s'arrêta nette et un immense oeil apparu de l'autre côté de la vitre. L'oeil émet alors un étrange son, on dirait qu'il essaye de vous dire quelque chose...
+</p>
 
-
-  <!-- Ajoutez vos boutons ici -->
-<button class="custom-button" id="button1">
+<div style="text-align:center">
+  <button class="custom-button" id="button1">
   <img src="https://ih1.redbubble.net/image.1144906266.0892/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Image 1">
 </button>
+</div>
+  <!-- Ajoutez vos boutons ici -->
+
 
   <!-- Ajoutez vos sons ici -->
 <audio id="sound1" src="https://firefulll.github.io/S%C3%A9quence%2002.mp3" preload="auto"></audio>
 
+<div style="text-align: center; margin-top: 50px;">
+<img src="https://firefulll.github.io/ImagePad.png" alt="ImgPad" style="width: 40%;">
+</div>
+
+<div style="text-align: center; margin-top: 50px;">
+<iframe src="https://lockee.fr/o/n51mL3z1" height="500" width="350" frameborder="0"></iframe>
+</div>
 
 <script>
   document.getElementById('button1').addEventListener('click', function() {
@@ -62,4 +83,3 @@
 
 
 </body>
-</html>
