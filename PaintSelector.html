@@ -7,113 +7,114 @@
   <style>
     /* Ajoutez vos styles CSS ici */
     
-    digital-lock {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.lock-case {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  border: 1px solid #ccc;
-  margin: 0 10px;
-  text-align: center;
-}
-
-.lock-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: auto;
-}
-
-.change-image {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.change-image[data-image-index="-1"] {
-  left: 10px;
-}
-
-.change-image[data-image-index="1"] {
-  right: 10px;
-}
+    body {
+      background-color: #333333; /* Couleur de fond de la page */
+    }
     
+    #digital-lock {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lock-case {
+      position: relative;
+      width: 100px;
+      height: 120px;
+      margin: 0 10px;
+      text-align: center;
+    }
+
+    .lock-image {
+      width: 100%;
+      height: 120px;
+      display: block;
+      margin: auto;
+    }
+
+    .change-image {
+      position: absolute;
+      top: 120%;
+      transform: translateY(-50%);
+      background-color: ;
+      border: 1;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .change-image[data-image-index="-1"] {
+      left: 10px;
+    }
+
+    .change-image[data-image-index="1"] {
+      right: 10px;
+    }
   </style>
 </head>
 <body>
+    
+    
   <!-- Ajoutez le cadenas numérique ici -->
-  
+
   <div id="digital-lock">
-  <div class="lock-case">
-    <button class="change-image" data-image-index="-1">↑</button>
-    <img src="https://cdn-icons-png.flaticon.com/512/6009/6009863.png" alt="Image 1" class="lock-image">
-    <button class="change-image" data-image-index="1">↓</button>
+    <div class="lock-case">
+      <img src="https://fireFulll.github.io/Images/capitaine1.jpg" alt="Image 1" class="lock-image">
+      <button class="change-image" data-image-index="-1">↑</button>
+      <button class="change-image" data-image-index="1">↓</button>
+    </div>
+    <div class="lock-case">
+      <img src="https://fireFulll.github.io/Images/capitaine1.jpg" alt="Image 2" class="lock-image">
+      <button class="change-image" data-image-index="-1">↑</button>
+      <button class="change-image" data-image-index="1">↓</button>
+    </div>
   </div>
-  <div class="lock-case">
-    <button class="change-image" data-image-index="-1">↑</button>
-    <img src="image2.jpg" alt="Image 2" class="lock-image">
-    <button class="change-image" data-image-index="1">↓</button>
+
+  <div id="custom-message" style="display: none;">
+    Vous avez trouvé la bonne combinaison !
   </div>
-</div>
-  
-   <div id="custom-message" style="display: none;">
-  Vous avez trouvé la bonne combinaison !
-</div>
 
   <!-- Ajoutez vos scripts JavaScript ici -->
-  
-  <script>
-  var images = ['https://cdn-icons-png.flaticon.com/512/6009/6009863.png', 'https://www.pngall.com/wp-content/uploads/5/Vector-Shape-PNG-Image-File.png', 'http://www.pngall.com/wp-content/uploads/5/Vector-Shape-PNG-Pic.png']; // Ajoutez les chemins de vos images
-  var lockCases = document.querySelectorAll('.lock-case');
-    var customMessage = document.getElementById('custom-message');
-  var correctCombination = ['https://cdn-icons-png.flaticon.com/512/6009/6009863.png', 'https://www.pngall.com/wp-content/uploads/5/Vector-Shape-PNG-Image-File.png']; // Définissez la bonne combinaison d'images
 
+  <script>
+var images = ['https://firefulll.github.io/Images/capitaine1.jpg', 'https://firefulll.github.io/Images/capitaine2.png', 'https://firefulll.github.io/Images/capitaine3.jpg', 'https://firefulll.github.io/Images/capitaine4.png', 'https://firefulll.github.io/Images/capitaine5.jpg', 'https://firefulll.github.io/Images/capitaine6.jpg']; // Ajoutez les chemins de vos images
+var lockCases = document.querySelectorAll('.lock-case');
+var customMessage = document.getElementById('custom-message');
+var correctCombination = ['https://cdn-icons-png.flaticon.com/512/6009/6009863.png', 'https://www.pngall.com/wp-content/uploads/5/Vector-Shape-PNG-Image-File.png']; // Définissez la bonne combinaison d'images
+
+lockCases.forEach(function(lockCase) {
+  var lockImage = lockCase.querySelector('.lock-image');
+  var changeImageButtons = lockCase.querySelectorAll('.change-image');
+
+  changeImageButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      var currentIndex = images.indexOf(lockImage.src);
+      var newIndex = (currentIndex + parseInt(button.dataset.imageIndex) + images.length) % images.length;
+      lockImage.src = images[newIndex];
+
+      checkCombination();
+    });
+  });
+});
+
+function checkCombination() {
+  var currentCombination = [];
 
   lockCases.forEach(function(lockCase) {
     var lockImage = lockCase.querySelector('.lock-image');
-    var changeImageButtons = lockCase.querySelectorAll('.change-image');
-
-    changeImageButtons.forEach(function(button) {
-      button.addEventListener('click', function() {
-        var currentIndex = images.indexOf(lockImage.src);
-        var newIndex = (currentIndex + parseInt(button.dataset.imageIndex) + images.length) % images.length;
-        lockImage.src = images[newIndex];
-  
-    checkCombination();
-      });
-    });
+    currentCombination.push(lockImage.src);
   });
 
-  function checkCombination() {
-    var currentCombination = [];
-
+  if (currentCombination.every(function(image, index) {
+    return image === correctCombination[index];
+  })) {
     lockCases.forEach(function(lockCase) {
-      var lockImage = lockCase.querySelector('.lock-image');
-      currentCombination.push(lockImage.src);
+      lockCase.style.display = 'none';
     });
 
-    if (currentCombination.every(function(image, index) {
-      return image === correctCombination[index];
-    })) {
-      lockCases.forEach(function(lockCase) {
-        lockCase.style.display = 'none';
-      });
-
-      customMessage.style.display = 'block';
-    }
+    customMessage.style.display = 'block';
   }
-</script>
-  
-  
-  
+}
+
+  </script>
 </body>
 </html>
