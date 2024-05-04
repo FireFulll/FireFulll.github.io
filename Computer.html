@@ -95,6 +95,7 @@
   <button class="bouton" onclick="ouvrirFenetre2()"><i class="fas fa-folder"></i> Dossier</button>
   <button class="bouton" onclick="ouvrirFenetre3()"><i class="fas fa-folder"></i> Playlist</button>
   <button class="bouton" onclick="ouvrirFenetre4()"><i class="fas fa-folder"></i> Données GPS</button>
+  <button class="bouton" onclick="ouvrirFenetre5()"><i class="fas fa-folder"></i> Communications à Distance</button>
 
   <div id="fenetre1" class="fenetre">
     <div class="fenetre-titre">
@@ -133,6 +134,16 @@
     </div>
     <div class="fenetre-contenu">
       <h3>Dernière localisation connue : 73°N 41°E </h3>
+    </div>
+  </div>
+
+  <div id="fenetre5" class="fenetre">
+    <div class="fenetre-titre">
+      <h2>Communications à Distance</h2>
+      <button class="fenetre-bouton-fermer" onclick="fermerFenetre5()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="fenetre-contenu">
+      <button class="bouton" onclick="redirigerVers('https://www.example3.com''_blank')"><i class="fas fa-file-alt"></i> Aller sur le site 5</button>
     </div>
   </div>
 
@@ -184,6 +195,10 @@ function ouvrirFenetre3() {
 function ouvrirFenetre4() {
   document.getElementById('fenetre4').style.display = 'block';
 }
+
+function ouvrirFenetre5() {
+  document.getElementById('fenetre5').style.display = 'block';
+}
 function fermerFenetre1() {
   document.getElementById('fenetre1').style.display = 'none';
 }
@@ -195,6 +210,9 @@ function fermerFenetre3() {
 }
 function fermerFenetre4() {
   document.getElementById('fenetre4').style.display = 'none';
+}
+    function fermerFenetre5() {
+  document.getElementById('fenetre5').style.display = 'none';
 }
 function redirigerVers(url) {
  window.open(url, '_blank');
