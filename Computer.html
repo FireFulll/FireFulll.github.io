@@ -79,7 +79,7 @@
       <button class="fenetre-bouton-fermer" onclick="fermerFenetre1()"><i class="fas fa-times"></i></button>
     </div>
     <div class="fenetre-contenu">
-      <button class="bouton" onclick="redirigerVers('https://firefulll.github.io/Codex.html''_blank')"><i class="fas fa-file-alt"></i> Aller sur le site 1</button>
+      <button class="bouton" onclick="redirigerVers('https://firefulll.github.io/Codex.html')"><i class="fas fa-file-alt"></i> Codex</button>
     </div>
   </div>
 
@@ -99,7 +99,7 @@
       <button class="fenetre-bouton-fermer" onclick="fermerFenetre3()"><i class="fas fa-times"></i></button>
     </div>
     <div class="fenetre-contenu">
-      <button class="bouton" onclick="redirigerVers('https://www.example4.com''_blank')"><i class="fas fa-file-alt"></i> Aller sur le site 4</button>
+      <button class="bouton" onclick="redirigerVers('https://www.example3.com''_blank')"><i class="fas fa-file-alt"></i> Aller sur le site 3</button>
     </div>
   </div>
   
@@ -115,8 +115,12 @@
 
   <script>
 function ouvrirFenetre1() {
-    document.getElementById('fenetre1').style.display = 'block';
-}
+      var motDePasse = prompt("Entrez le mot de passe :");
+      if (motDePasse === "AzertY") {
+        document.getElementById('fenetre1').style.display = 'block';
+      } else {
+        alert("Mot de passe incorrect !");
+      }
 function ouvrirFenetre2() {document.getElementById('fenetre2').style.display = 'block';
 }
 function ouvrirFenetre3() {
@@ -138,7 +142,7 @@ function fermerFenetre4() {
   document.getElementById('fenetre4').style.display = 'none';
 }
 function redirigerVers(url) {
-  window.location.href = url;
+ window.open(url, '_blank');
 }
 </script> 
 </body> 
