@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boutons sonores</title>
+  <style>
+    /* Ajoutez vos styles CSS ici */
+
+
+
+    body {
+      background-color: #222222; /* Couleur de fond de la page */
+    }
+ 
+
+  </style>
+</head>
+<body>
+
+<p style="text-align:center ; color: #05DE06">
+ La fin du voyage se fera manuellement. Vous avez les instructions pour vos camarades, mais cela semble n'avoir aucun sens, peut-être ont ils de quoi les déchiffrer ?
+</p>
+<div style="justify-content: center;">
+      <img src="https://firefulll.github.io/Images/Instructions.png" alt="Image 1">
+    </div>
+
+  
+<script>
+
+</script>
+</body>
