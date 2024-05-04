@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Site avec 3 boutons</title>
+  <title>Computer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
   <style>
   
@@ -71,6 +71,7 @@
   <button class="bouton" onclick="ouvrirFenetre1()"><i class="fas fa-folder"></i> Language</button>
   <button class="bouton" onclick="ouvrirFenetre2()"><i class="fas fa-folder"></i> Dossier</button>
   <button class="bouton" onclick="ouvrirFenetre3()"><i class="fas fa-folder"></i> Playlist</button>
+  <button class="bouton" onclick="ouvrirFenetre4()"><i class="fas fa-folder"></i> Données GPS</button>
 
   <div id="fenetre1" class="fenetre">
     <div class="fenetre-titre">
@@ -98,18 +99,31 @@
       <button class="fenetre-bouton-fermer" onclick="fermerFenetre3()"><i class="fas fa-times"></i></button>
     </div>
     <div class="fenetre-contenu">
-      <button class="bouton" onclick="redirigerVers('https://www.example3.com''_blank')"><i class="fas fa-file-alt"></i> Aller sur le site 3</button>
+      <button class="bouton" onclick="redirigerVers('https://www.example4.com''_blank')"><i class="fas fa-file-alt"></i> Aller sur le site 4</button>
+    </div>
+  </div>
+  
+  <div id="fenetre4" class="fenetre">
+    <div class="fenetre-titre">
+      <h2>Données GPS</h2>
+      <button class="fenetre-bouton-fermer" onclick="fermerFenetre4()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="fenetre-contenu">
+      <h3>Dernière localisation connue : 73°N 41°E </h3>
     </div>
   </div>
 
   <script>
-    function ouvrirFenetre1() {
-      document.getElementById('fenetre1').style.display = 'block';
-    }
-    function ouvrirFenetre2() {document.getElementById('fenetre2').style.display = 'block';
+function ouvrirFenetre1() {
+    document.getElementById('fenetre1').style.display = 'block';
+}
+function ouvrirFenetre2() {document.getElementById('fenetre2').style.display = 'block';
 }
 function ouvrirFenetre3() {
   document.getElementById('fenetre3').style.display = 'block';
+}
+function ouvrirFenetre4() {
+  document.getElementById('fenetre4').style.display = 'block';
 }
 function fermerFenetre1() {
   document.getElementById('fenetre1').style.display = 'none';
@@ -119,6 +133,9 @@ function fermerFenetre2() {
 }
 function fermerFenetre3() {
   document.getElementById('fenetre3').style.display = 'none';
+}
+function fermerFenetre4() {
+  document.getElementById('fenetre4').style.display = 'none';
 }
 function redirigerVers(url) {
   window.location.href = url;
