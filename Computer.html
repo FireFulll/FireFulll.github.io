@@ -161,10 +161,27 @@
   </div>
 </div>
 
+<div id="fenetreMotDePasse2" class="fenetre">
+  <div class="fenetre-titre">
+    <h2>Mot de passe</h2>
+    <button class="fenetre-bouton-fermer" onclick="fermerFenetreMotDePasse2()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="fenetre-contenu">
+    <input type="password" id="motDePasseInput2">
+  <br>
+  <span id="erreurMotDePasse2"></span>
+  <br>
+  <button class="bouton" onclick="verifierMotDePasse2()"><i class="fas fa-check"></i> Valider</button>
+  </div>
+</div>
+
   <script>
   
   function ouvrirFenetreMotDePasse() {
   document.getElementById('fenetreMotDePasse').style.display = 'block';
+}
+    function ouvrirFenetreMotDePasse2() {
+  document.getElementById('fenetreMotDePasse2').style.display = 'block';
 }
 
 function verifierMotDePasse() {
@@ -179,14 +196,30 @@ function verifierMotDePasse() {
     erreurMotDePasse.style.color = "red";
   }
 }
+    function verifierMotDePasse2() {
+  var motDePasse = document.getElementById('motDePasseInput2').value;
+  var erreurMotDePasse = document.getElementById('erreurMotDePasse2');
+
+  if (motDePasse === "123456") {
+    fermerFenetreMotDePasse2();
+    document.getElementById('fenetre5').style.display = 'block';
+  } else {
+    erreurMotDePasse.textContent = "Mot de passe incorrect !";
+    erreurMotDePasse.style.color = "red";
+  }
+}
 
 function fermerFenetreMotDePasse() {
   document.getElementById('fenetreMotDePasse').style.display = 'none';
+}
+    function fermerFenetreMotDePasse2() {
+  document.getElementById('fenetreMotDePasse2').style.display = 'none';
 }
 
 function ouvrirFenetre1() {
   ouvrirFenetreMotDePasse();
 }
+
 function ouvrirFenetre2() {document.getElementById('fenetre2').style.display = 'block';
 }
 function ouvrirFenetre3() {
@@ -195,9 +228,8 @@ function ouvrirFenetre3() {
 function ouvrirFenetre4() {
   document.getElementById('fenetre4').style.display = 'block';
 }
-
 function ouvrirFenetre5() {
-  document.getElementById('fenetre5').style.display = 'block';
+  ouvrirFenetreMotDePasse2();
 }
 function fermerFenetre1() {
   document.getElementById('fenetre1').style.display = 'none';
@@ -214,6 +246,7 @@ function fermerFenetre4() {
     function fermerFenetre5() {
   document.getElementById('fenetre5').style.display = 'none';
 }
+
 function redirigerVers(url) {
  window.open(url, '_blank');
 }
