@@ -63,6 +63,14 @@
       font-size: 20px;
       color: #05DE06;
     }
+    
+    #erreurMotDePasse {
+  color: red;
+  font-size: 12px;
+}
+    
+    
+    
   </style>
 </head>
 <body>
@@ -113,9 +121,45 @@
     </div>
   </div>
 
+<div id="fenetreMotDePasse" class="fenetre">
+  <div class="fenetre-titre">
+    <h2>Mot de passe</h2>
+    <button class="fenetre-bouton-fermer" onclick="fermerFenetreMotDePasse()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="fenetre-contenu">
+    <input type="password" id="motDePasseInput">
+  <br>
+  <span id="erreurMotDePasse"></span>
+  <br>
+  <button class="bouton" onclick="verifierMotDePasse()"><i class="fas fa-check"></i> Valider</button>
+  </div>
+</div>
+
   <script>
-function ouvrirFenetre1() {
+  
+  function ouvrirFenetreMotDePasse() {
+  document.getElementById('fenetreMotDePasse').style.display = 'block';
+}
+
+function verifierMotDePasse() {
+  var motDePasse = document.getElementById('motDePasseInput').value;
+  var erreurMotDePasse = document.getElementById('erreurMotDePasse');
+
+  if (motDePasse === "aaa") {
+    fermerFenetreMotDePasse();
     document.getElementById('fenetre1').style.display = 'block';
+  } else {
+    erreurMotDePasse.textContent = "Mot de passe incorrect !";
+    erreurMotDePasse.style.color = "red";
+  }
+}
+
+function fermerFenetreMotDePasse() {
+  document.getElementById('fenetreMotDePasse').style.display = 'none';
+}
+
+function ouvrirFenetre1() {
+  ouvrirFenetreMotDePasse();
 }
 function ouvrirFenetre2() {document.getElementById('fenetre2').style.display = 'block';
 }
@@ -140,6 +184,8 @@ function fermerFenetre4() {
 function redirigerVers(url) {
  window.open(url, '_blank');
 }
+
+
 </script> 
 </body> 
 </html>
