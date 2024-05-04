@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Site avec 3 boutons</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <style>
+  
+  h1 {
+  font-family: Arial, sans-serif;
+  color: #05DE06;
+  font-size: 36px;
+  line-height: 1.2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+  
+  body{
+       background-color: #222222;
+  }
+    .bouton {
+      margin: 10px;
+      padding: 10px;
+      font-size: 20px;
+      border: none;
+      background-color: #222222;
+      border: 2px solid #05DE06;
+      cursor: pointer;
+      color: #05DE06;
+    }
+    .bouton:hover {
+      background-color: #ccc;
+    }
+    .fenetre {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #222222;
+      border: 2px solid #05DE06;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 10px;
+      resize: both;
+      overflow: auto;
+      color: #05DE06;
+    }
+    .fenetre-titre {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .fenetre-contenu {
+      text-align: center;
+    }
+    .fenetre-bouton-fermer {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      color: #05DE06;
+    }
+  </style>
+</head>
+<body>
+    <h1>TITRE</h1>
+    
+  <button class="bouton" onclick="ouvrirFenetre1()"><i class="fas fa-folder"></i> Bouton 1</button>
+  <button class="bouton" onclick="ouvrirFenetre2()"><i class="fas fa-folder"></i> Bouton 2</button>
+  <button class="bouton" onclick="ouvrirFenetre3()"><i class="fas fa-folder"></i> Bouton 3</button>
+
+  <div id="fenetre1" class="fenetre">
+    <div class="fenetre-titre">
+      <h2>Fenêtre 1</h2>
+      <button class="fenetre-bouton-fermer" onclick="fermerFenetre1()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="fenetre-contenu">
+      <button class="bouton" onclick="redirigerVers('https://firefulll.github.io/Codex.html''_blank')"><i class="fas fa-file-alt"></i> Aller sur le site 1</button>
+    </div>
+  </div>
+
+  <div id="fenetre2" class="fenetre">
+    <div class="fenetre-titre">
+      <h2>Fenêtre 2</h2>
+      <button class="fenetre-bouton-fermer" onclick="fermerFenetre2()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="fenetre-contenu">
+      <button class="bouton" onclick="redirigerVers('https://www.example2.com''_blank')"><i class="fas fa-file-alt"></i> Aller sur le site 2</button>
+    </div>
+  </div>
+
+  <div id="fenetre3" class="fenetre">
+    <div class="fenetre-titre">
+      <h2>Fenêtre 3</h2>
+      <button class="fenetre-bouton-fermer" onclick="fermerFenetre3()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="fenetre-contenu">
+      <button class="bouton" onclick="redirigerVers('https://www.example3.com''_blank')"><i class="fas fa-file-alt"></i> Aller sur le site 3</button>
+    </div>
+  </div>
+
+  <script>
+    function ouvrirFenetre1() {
+      document.getElementById('fenetre1').style.display = 'block';
+    }
+    function ouvrirFenetre2() {document.getElementById('fenetre2').style.display = 'block';
+}
+function ouvrirFenetre3() {
+  document.getElementById('fenetre3').style.display = 'block';
+}
+function fermerFenetre1() {
+  document.getElementById('fenetre1').style.display = 'none';
+}
+function fermerFenetre2() {
+  document.getElementById('fenetre2').style.display = 'none';
+}
+function fermerFenetre3() {
+  document.getElementById('fenetre3').style.display = 'none';
+}
+function redirigerVers(url) {
+  window.location.href = url;
+}
+</script> 
+</body> 
+</html>
