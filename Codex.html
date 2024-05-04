@@ -1,126 +1,123 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Site avec 3 boutons</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <title>Liste d'images avec mots</title>
   <style>
-  
-  h1 {
-  font-family: Arial, sans-serif;
-  color: #05DE06;
-  font-size: 36px;
-  line-height: 1.2;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: left;
-}
-  
-  body{
-       background-color: #222222;
-  }
-    .bouton {
-      margin: 10px;
-      padding: 10px;
-      font-size: 20px;
-      border: none;
-      background-color: #222222;
-      border: 2px solid #05DE06;
-      cursor: pointer;
-      color: #05DE06;
+
+   body {
+      background-color: #333333; /* Couleur de fond de la page */
     }
-    .bouton:hover {
-      background-color: #ccc;
-    }
-    .fenetre {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #222222;
-      border: 2px solid #05DE06;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      padding: 10px;
-      resize: both;
-      overflow: auto;
-      color: #05DE06;
-    }
-    .fenetre-titre {
+
+    .container {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
+    }
+    .image-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 20px;
     }
-    .fenetre-contenu {
-      text-align: center;
+    img {
+      width: 150px; /* Ajustez cette valeur selon vos besoins */
+      height: 150px; /* Ajustez cette valeur selon vos besoins */
+      object-fit: cover; /* L'image remplit le conteneur sans déformation */
+      margin-right: 20px;
     }
-    .fenetre-bouton-fermer {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      font-size: 20px;
-      color: #05DE06;
+    .word {
+      color: white;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-    <h1>TITRE</h1>
-    
-  <button class="bouton" onclick="ouvrirFenetre1()"><i class="fas fa-folder"></i> Language</button>
-  <button class="bouton" onclick="ouvrirFenetre2()"><i class="fas fa-folder"></i> Dossier</button>
-  <button class="bouton" onclick="ouvrirFenetre3()"><i class="fas fa-folder"></i> Playlist</button>
+  <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image1.png" alt="Image 1">
+      <div class="word">Mot 1</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image2.png" alt="Image 2">
+      <div class="word">Mot 2</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image3.png" alt="Image 3">
+      <div class="word">Mot 3</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image4.png" alt="Image 4">
+      <div class="word">Mot 4</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image5.png" alt="Image 5">
+      <div class="word">Mot 5</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image6.png" alt="Image 6">
+      <div class="word">Mot 6</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image7.png" alt="Image 7">
+      <div class="word">Mot 7</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image8.png" alt="Image 8">
+      <div class="word">Mot 8</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image9.png" alt="Image 9">
+      <div class="word">Mot 9</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image10.png" alt="Image 10">
+      <div class="word">Mot 10</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image11.png" alt="Image 11">
+      <div class="word">Mot 11</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image12.png" alt="Image 12">
+      <div class="word">Mot 12</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image13.png" alt="Image 13">
+      <div class="word">Mot 13</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image14.png" alt="Image 14">
+      <div class="word">Mot 13</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image15.png" alt="Image 15">
+      <div class="word">Mot 13</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image16.png" alt="Image 16">
+      <div class="word">Mot 16</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image_n1.png" alt="Image 17">
+      <div class="word">Mot 17</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image_n2.png" alt="Image 18">
+      <div class="word">Mot 18</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image_n3.png" alt="Image 19">
+      <div class="word">Mot 19</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image_n4.png" alt="Image 20">
+      <div class="word">Mot 19</div>
+    </div>
+    <div class="image-container">
+      <img src="https://firefulll.github.io/Images/image_n5.png" alt="Image 121">
+      <div class="word">Mot 19</div>
+    </div>
 
-  <div id="fenetre1" class="fenetre">
-    <div class="fenetre-titre">
-      <h2>Language</h2>
-      <button class="fenetre-bouton-fermer" onclick="fermerFenetre1()"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="fenetre-contenu">
-      <button class="bouton" onclick="redirigerVers('https://firefulll.github.io/Codex.html', '_blank')"><i class="fas fa-file-alt"></i> Aller sur le site 1</button>
-    </div>
   </div>
-
-  <div id="fenetre2" class="fenetre">
-    <div class="fenetre-titre">
-      <h2>Dossier</h2>
-      <button class="fenetre-bouton-fermer" onclick="fermerFenetre2()"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="fenetre-contenu">
-      <button class="bouton" onclick="redirigerVers('https://www.example2.com', '_blank')"><i class="fas fa-file-alt"></i> Aller sur le site 2</button>
-    </div>
-  </div>
-
-  <div id="fenetre3" class="fenetre">
-    <div class="fenetre-titre">
-      <h2>Playlist</h2>
-      <button class="fenetre-bouton-fermer" onclick="fermerFenetre3()"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="fenetre-contenu">
-      <button class="bouton" onclick="redirigerVers('https://www.example3.com''_blank')"><i class="fas fa-file-alt"></i> Aller sur le site 3</button>
-    </div>
-  </div>
-
-  <script>
-    function ouvrirFenetre1() {
-      document.getElementById('fenetre1').style.display = 'block';
-    }
-    function ouvrirFenetre2() {document.getElementById('fenetre2').style.display = 'block';
-}
-function ouvrirFenetre3() {
-  document.getElementById('fenetre3').style.display = 'block';
-}
-function fermerFenetre1() {
-  document.getElementById('fenetre1').style.display = 'none';
-}
-function fermerFenetre2() {
-  document.getElementById('fenetre2').style.display = 'none';
-}
-function fermerFenetre3() {
-  document.getElementById('fenetre3').style.display = 'none';
-}
-function redirigerVers(url) {
-  window.location.href = url;
-}
-</script> </body> </html>
+</body>
+</html>
