@@ -7,6 +7,42 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
   <style>
   
+  .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+    
+      background-color: #222222;
+      border: 2px solid #05DE06;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      max-width: 80%;
+      margin: auto;
+      text-align: center;
+    }
+    .modal-input {
+      margin: 10px;
+      padding: 10px;
+      font-size: 20px;
+      border: none;
+      background-color: #222222;
+      border: 2px solid #05DE06;
+      cursor: text;
+      color: #05DE06;
+    }
+  
+  
+  
+  
   @media (max-width: 480px) {
   h1 {
     font-size: 50px; /* Augmente la taille de la police des titres h1 */
@@ -19,6 +55,8 @@
     font-size: 16px; /* Augmente la taille de la police du contenu des fenêtres */
   }
 }
+  
+  
   
   
   h1 {
@@ -96,6 +134,23 @@
   <button class="bouton" onclick="ouvrirFenetre3()"><i class="fas fa-folder"></i> Playlist</button>
   <button class="bouton" onclick="ouvrirFenetre4()"><i class="fas fa-folder"></i> Données GPS</button>
   <button class="bouton" onclick="ouvrirFenetre5()"><i class="fas fa-folder"></i> Communications à Distance</button>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+      <h2 style="color:#05DE06;">Identification</h2>
+      <p>
+        <label for="username" style="color:#05DE06;">Identifiant : &nbsp;&nbsp;&nbsp;</label>
+        <input  type="text" id="username" value="Admin"  disabled class="modal-input">
+      </p>
+      <p>
+        <label for="password" style="color:#05DE06;">Mot de passe : </label>
+        <input type="password" id="password" class="modal-input">
+      </p>
+      <p id="error" style="color: red;"></p>
+      <button class="bouton" onclick="verifyPassword()"><i class="fas fa-check"></i> Valider</button>
+    </div>
+  </div>
+
 
   <div id="fenetre1" class="fenetre">
     <div class="fenetre-titre">
@@ -176,6 +231,31 @@
 </div>
 
   <script>
+  
+  function showModal() {
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function hideModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    function verifyPassword() {
+      const password = document.getElementById('password').value;
+      const error = document.getElementById('error');
+
+      if (password === 'votreMotDePasse') {
+        hideModal();
+      } else {
+        error.innerHTML = 'Mot de passe incorrect !';
+      }
+    }
+
+    window.onload = function() {
+      showModal();
+    };
+  
+  
   
   function ouvrirFenetreMotDePasse() {
   document.getElementById('fenetreMotDePasse').style.display = 'block';
