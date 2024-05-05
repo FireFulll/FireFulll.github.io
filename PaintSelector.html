@@ -12,43 +12,63 @@
     }
 
     #digital-lock {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-    .lock-case {
-      position: relative;
-      width: 100px;
-      height: 120px;
-      margin: 0 10px;
-      text-align: center;
-    }
+.lock-case {
+  position: relative;
+  width: 100px;
+  height: 120px;
+  margin: 0 10px;
+  text-align: center;
+}
 
-    .lock-image {
-      width: 100%;
-      height: 120px;
-      display: block;
-      margin: auto;
-    }
+.lock-image {
+  width: 100%;
+  height: 120px;
+  display: block;
+  margin: auto;
+}
 
-    .change-image {
-      position: absolute;
-      top: 120%;
-      transform: translateY(-50%);
-      background-color: ;
-      border: 1;
-      cursor: pointer;
-      font-size: 18px;
-    }
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
 
-    .change-image[data-image-index="-1"] {
-      left: 10px;
-    }
+.change-image {
+  position: relative;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 5px;
+  padding: 5px;
+}
 
-    .change-image[data-image-index="1"] {
-      right: 10px;
-    }
+#validate-button {
+  margin-top: 80px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#custom-message {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
 
   </style>
 </head>
@@ -56,36 +76,38 @@
 
   <!-- Ajoutez le cadenas numérique ici -->
 
-  <div id="digital-lock">
-    <div class="lock-case">
-      <img src="https://firefulll.github.io/Images/capitaine1.jpg" alt="Image 1" class="lock-image">
-      <button class="change-image" data-image-index="-1">↑</button>
-      <button class="change-image" data-image-index="1">↓</button>
-    </div>
-    <div class="lock-case">
-      <img src="https://firefulll.github.io/Images/FlowerVanGogh.png" alt="Image 2" class="lock-image">
-      <button class="change-image" data-image-index="-1">↑</button>
-      <button class="change-image" data-image-index="1">↓</button>
-    </div>
-    <div class="lock-case">
-      <img src="https://firefulll.github.io/Images/Kirov.png" alt="Image 3" class="lock-image">
+ <div id="digital-lock">
+  <div class="lock-case">
+    <img src="https://firefulll.github.io/Images/capitaine1.jpg" alt="Image 1" class="lock-image">
+    <div class="button-container">
       <button class="change-image" data-image-index="-1">↑</button>
       <button class="change-image" data-image-index="1">↓</button>
     </div>
   </div>
-  
+  <div class="lock-case">
+    <img src="https://firefulll.github.io/Images/FlowerVanGogh.png" alt="Image 2" class="lock-image">
+    <div class="button-container">
+      <button class="change-image" data-image-index="-1">↑</button>
+      <button class="change-image" data-image-index="1">↓</button>
+    </div>
+  </div> 
+  <div class="lock-case">
+    <img src="https://firefulll.github.io/Images/Kirov.png" alt="Image 3" class="lock-image">
+    <div class="button-container">
+      <button class="change-image" data-image-index="-1">↑</button>
+      <button class="change-image" data-image-index="1">↓</button>
+    </div>
+  </div>
   <button id="validate-button">Valider</button>
-
-
-  <div id="custom-message" style="display: none;">
-    Vous avez trouvé la bonne combinaison !
-  </div>
-
+</div>
+<div id="custom-message" style="display: none;">
+  Vous avez trouvé la bonne combinaison !
+</div>
   <!-- Ajoutez vos scripts JavaScript ici -->
 
   <script>
   
-    var imageLists = [
+var imageLists = [
   ['https://firefulll.github.io/Images/capitaine1.jpg', 'https://firefulll.github.io/Images/capitaine2.png', 'https://firefulll.github.io/Images/capitaine3.jpg', 'https://firefulll.github.io/Images/capitaine4.png', 'https://firefulll.github.io/Images/capitaine5.jpg', 'https://firefulll.github.io/Images/capitaine6.jpg'],
   ['https://firefulll.github.io/Images/FlowerVanGogh.png', 'https://firefulll.github.io/Images/HorseUccello.png', 'https://firefulll.github.io/Images/MonkeyTeniers.png', 'https://firefulll.github.io/Images/OrangeCezanne.png', 'https://firefulll.github.io/Images/PieMonet.png', 'https://firefulll.github.io/Images/TigerMarc.png',],
   ['https://firefulll.github.io/Images/Kirov.png', 'https://firefulll.github.io/Images/Moskva.png', 'https://firefulll.github.io/Images/K-19.png', 'https://firefulll.github.io/Images/Ekranoplan.png', 'https://firefulll.github.io/Images/Novorossiysk.png', 'https://firefulll.github.io/Images/Typhoon.png']
@@ -94,7 +116,6 @@ var lockCases = document.querySelectorAll('.lock-case');
 var customMessage = document.getElementById('custom-message');
 var correctCombination = ['https://firefulll.github.io/Images/capitaine3.jpg', 'https://firefulll.github.io/Images/MonkeyTeniers.png', 'https://firefulll.github.io/Images/Typhoon.png']; // Définissez la bonne combinaison d'images
 var validateButton = document.getElementById('validate-button');
-var validateButtonClicked = false;
 
 lockCases.forEach(function(lockCase, index) {
   var lockImage = lockCase.querySelector('.lock-image');
@@ -110,11 +131,11 @@ lockCases.forEach(function(lockCase, index) {
   });
 });
 
-function checkCombination() {
-  if (!validateButtonClicked) {
-    return;
-  }
+validateButton.addEventListener('click', function() {
+  checkCombination();
+});
 
+function checkCombination() {
   var currentCombination = [];
 
   lockCases.forEach(function(lockCase) {
@@ -130,14 +151,9 @@ function checkCombination() {
     });
 
     customMessage.style.display = 'block';
+    validateButton.style.display = 'none';
   }
 }
-
-validateButton.addEventListener('click', function() {
-  validateButtonClicked = true;
-  checkCombination();
-});
-
 
   </script>
 </body>
