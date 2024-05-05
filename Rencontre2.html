@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rencontre2</title>
+  <style>
+    /* Ajoutez vos styles CSS ici */
+
+
+
+    body {
+      background-color: #222222; /* Couleur de fond de la page */
+    }
+    
+    .custom-button {
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  border: solid
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+}
+
+
+.custom-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  align-content: center;
+}
+
+#buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+  </style>
+</head>
+<body>
+
+<p style="text-align:center ; color: #05DE06">
+  Vous appuyez sur le bouton en esperant communiquer avec lui. Le sous-marin émis alors un etrange bruit du fond de ses entrailles et un long silence retentit. Vous commencez a douter et réflechissez à une autre solution pour sortir de ce guépier lorsque la bête émis de nouveau un son étrange.
+</p>
+
+<div style="text-align:center">
+  <button class="custom-button" id="button1">
+  <img src="https://ih1.redbubble.net/image.1144906266.0892/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Image 1">
+</button>
+</div>
+  <!-- Ajoutez vos boutons ici -->
+
+
+  <!-- Ajoutez vos sons ici -->
+<audio id="sound1" src="https://firefulll.github.io/Sounds/Sequence%2002_7.mp3" preload="auto"></audio>
+
+<div style="text-align: center; margin-top: 50px;">
+<img src="https://firefulll.github.io/Images/ImagePad.png" alt="ImgPad" style="width: 40%;">
+</div>
+
+<div style="text-align: center; margin-top: 50px;">
+<iframe src="https://lockee.fr/o/xoTD3R64" height="500" width="350" frameborder="0"></iframe>
+</div>
+
+<script>
+  document.getElementById('button1').addEventListener('click', function() {
+    document.getElementById('sound1').play();
+  });
+
+
+  // Ajoutez plus d'événements d'écoute de clic si nécessaire
+</script>
+
+
+</body>
