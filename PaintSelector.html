@@ -49,6 +49,7 @@
     .change-image[data-image-index="1"] {
       right: 10px;
     }
+
   </style>
 </head>
 <body>
@@ -72,6 +73,9 @@
       <button class="change-image" data-image-index="1">↓</button>
     </div>
   </div>
+  
+  <button id="validate-button">Valider</button>
+
 
   <div id="custom-message" style="display: none;">
     Vous avez trouvé la bonne combinaison !
@@ -80,51 +84,61 @@
   <!-- Ajoutez vos scripts JavaScript ici -->
 
   <script>
+  
     var imageLists = [
-      ['https://firefulll.github.io/Images/capitaine1.jpg', 'https://firefulll.github.io/Images/capitaine2.png', 'https://firefulll.github.io/Images/capitaine3.jpg', 'https://firefulll.github.io/Images/capitaine4.png', 'https://firefulll.github.io/Images/capitaine5.jpg', 'https://firefulll.github.io/Images/capitaine6.jpg'],
-      ['https://firefulll.github.io/Images/FlowerVanGogh.png', 'https://firefulll.github.io/Images/HorseUccello.png', 'https://firefulll.github.io/Images/MonkeyTeniers.png', 'https://firefulll.github.io/Images/OrangeCezanne.png', 'https://firefulll.github.io/Images/PieMonet.png', 'https://firefulll.github.io/Images/TigerMarc.png',],
-      ['https://firefulll.github.io/Images/Kirov.png', 'https://firefulll.github.io/Images/Moskva.png', 'https://firefulll.github.io/Images/K-19.png', 'https://firefulll.github.io/Images/Ekranoplan.png', 'https://firefulll.github.io/Images/Novorossiysk.png', 'https://firefulll.github.io/Images/Typhoon.png']
-    ];
-    var lockCases = document.querySelectorAll('.lock-case');
-    var customMessage = document.getElementById('custom-message');
-    var correctCombination = ['https://firefulll.github.io/Images/capitaine3.jpg', 'https://firefulll.github.io/Images/MonkeyTeniers.png', 'https://firefulll.github.io/Images/Typhoon.png']; // Définissez la bonne combinaison d'images
+  ['https://firefulll.github.io/Images/capitaine1.jpg', 'https://firefulll.github.io/Images/capitaine2.png', 'https://firefulll.github.io/Images/capitaine3.jpg', 'https://firefulll.github.io/Images/capitaine4.png', 'https://firefulll.github.io/Images/capitaine5.jpg', 'https://firefulll.github.io/Images/capitaine6.jpg'],
+  ['https://firefulll.github.io/Images/FlowerVanGogh.png', 'https://firefulll.github.io/Images/HorseUccello.png', 'https://firefulll.github.io/Images/MonkeyTeniers.png', 'https://firefulll.github.io/Images/OrangeCezanne.png', 'https://firefulll.github.io/Images/PieMonet.png', 'https://firefulll.github.io/Images/TigerMarc.png',],
+  ['https://firefulll.github.io/Images/Kirov.png', 'https://firefulll.github.io/Images/Moskva.png', 'https://firefulll.github.io/Images/K-19.png', 'https://firefulll.github.io/Images/Ekranoplan.png', 'https://firefulll.github.io/Images/Novorossiysk.png', 'https://firefulll.github.io/Images/Typhoon.png']
+];
+var lockCases = document.querySelectorAll('.lock-case');
+var customMessage = document.getElementById('custom-message');
+var correctCombination = ['https://firefulll.github.io/Images/capitaine3.jpg', 'https://firefulll.github.io/Images/MonkeyTeniers.png', 'https://firefulll.github.io/Images/Typhoon.png']; // Définissez la bonne combinaison d'images
+var validateButton = document.getElementById('validate-button');
+var validateButtonClicked = false;
 
-    lockCases.forEach(function(lockCase, index) {
-      var lockImage = lockCase.querySelector('.lock-image');
-      var changeImageButtons = lockCase.querySelectorAll('.change-image');
-      var images = imageLists[index];
+lockCases.forEach(function(lockCase, index) {
+  var lockImage = lockCase.querySelector('.lock-image');
+  var changeImageButtons = lockCase.querySelectorAll('.change-image');
+  var images = imageLists[index];
 
-      changeImageButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-          var currentIndex = images.indexOf(lockImage.src);
-          var newIndex = (currentIndex + parseInt(button.dataset.imageIndex) + images.length) % images.length;
-          lockImage.src = images[newIndex];
+  changeImageButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      var currentIndex = images.indexOf(lockImage.src);
+      var newIndex = (currentIndex + parseInt(button.dataset.imageIndex) + images.length) % images.length;
+      lockImage.src = images[newIndex];
+    });
+  });
+});
 
-          checkCombination();
-        });
-      });
+function checkCombination() {
+  if (!validateButtonClicked) {
+    return;
+  }
+
+  var currentCombination = [];
+
+  lockCases.forEach(function(lockCase) {
+    var lockImage = lockCase.querySelector('.lock-image');
+    currentCombination.push(lockImage.src);
+  });
+
+  if (currentCombination.every(function(image, index) {
+    return image === correctCombination[index];
+  })) {
+    lockCases.forEach(function(lockCase) {
+      lockCase.style.display = 'none';
     });
 
-    function checkCombination() {
-      var currentCombination = [];
+    customMessage.style.display = 'block';
+  }
+}
 
-      lockCases.forEach(function(lockCase) {
-        var lockImage = lockCase.querySelector('.lock-image');
-        currentCombination.push(lockImage.src);
-      });
+validateButton.addEventListener('click', function() {
+  validateButtonClicked = true;
+  checkCombination();
+});
 
-      if (currentCombination.every(function(image, index) {
-        return image === correctCombination[index];
-      })) {
-        lockCases.forEach(function(lockCase) {
-          lockCase.style.display = 'none';
-        });
-
-        customMessage.style.display = 'block';
-      }
-    }
 
   </script>
 </body>
 </html>
-
