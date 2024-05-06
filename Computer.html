@@ -179,7 +179,7 @@
     </div>
     <div class="fenetre-contenu">
       <button class="bouton" onclick="redirigerVers('https://firefulll.github.io/SoundButton.html')"><i class="fas fa-file-alt"></i> Sons de l'océan</button>
-      <button class="bouton" onclick="redirigerVers('https://www.example3.com')"><i class="fas fa-file-alt"></i> Partitions</button>
+      <button class="bouton" onclick="ouvrirFenetreMotDePasse3()"><i class="fas fa-file-alt"></i> Partitions</button> 
     </div>
   </div>
   
@@ -231,6 +231,20 @@
   </div>
 </div>
 
+<div id="fenetreMotDePasse3" class="fenetre">
+  <div class="fenetre-titre">
+    <h2>Mot de passe</h2>
+    <button class="fenetre-bouton-fermer" onclick="fermerFenetreMotDePasse3()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="fenetre-contenu">
+    <input type="password" id="motDePasseInput3">
+  <br>
+  <span id="erreurMotDePasse3"></span>
+  <br>
+  <button class="bouton" onclick="verifierMotDePasse3()"><i class="fas fa-check"></i> Valider</button>
+  </div>
+</div>
+
   <script>
   
   function showModal() {
@@ -265,6 +279,10 @@
   document.getElementById('fenetreMotDePasse2').style.display = 'block';
 }
 
+ function ouvrirFenetreMotDePasse3() {
+  document.getElementById('fenetreMotDePasse3').style.display = 'block';
+}
+
 function verifierMotDePasse() {
   var motDePasse = document.getElementById('motDePasseInput').value;
   var erreurMotDePasse = document.getElementById('erreurMotDePasse');
@@ -290,11 +308,27 @@ function verifierMotDePasse() {
   }
 }
 
+function verifierMotDePasse3() {
+      var motDePasse = document.getElementById('motDePasseInput3').value;
+      var erreurMotDePasse = document.getElementById('erreurMotDePasse3');
+
+      if (motDePasse === "ATHENA") {
+        fermerFenetreMotDePasse3();
+        redirigerVers('https://firefulll.github.io/Images/Melodiep1.png'); // Remplacez par l'URL que vous voulez
+      } else {
+        erreurMotDePasse.textContent = "Mot de passe incorrect !";
+        erreurMotDePasse.style.color = "red";
+      }
+    }
+
 function fermerFenetreMotDePasse() {
   document.getElementById('fenetreMotDePasse').style.display = 'none';
 }
     function fermerFenetreMotDePasse2() {
   document.getElementById('fenetreMotDePasse2').style.display = 'none';
+}
+function fermerFenetreMotDePasse3() {
+  document.getElementById('fenetreMotDePasse3').style.display = 'none';
 }
 
 function ouvrirFenetre1() {
